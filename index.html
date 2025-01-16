@@ -136,36 +136,40 @@
     </div>
 
     <script>
-        // Funzione per mostrare il messaggio di saluto
-        function mostraMessaggio() {
-            alert("Grazie per essere qui! 😊");
-        }
-
         // Funzione per aggiornare il contatore
-        function aggiornaContatore() {
-            let visite = localStorage.getItem('contatoreVisite');
-            if (!visite) {
-                visite = 0;
-            }
-            visite = parseInt(visite) + 1;
-            localStorage.setItem('contatoreVisite', visite);
-            document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
-        }
+function aggiornaContatore() {
+    let visite = localStorage.getItem('contatoreVisite');
+    if (!visite) {
+        visite = 0;
+    }
+    visite = parseInt(visite) + 1;
+    localStorage.setItem('contatoreVisite', visite);
+    document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
+}
 
-        // Funzione per verificare il referrer
-        function verificaReferrer() {
-            const referrer = document.referrer;
-            const allowedReferrer = "https://www.instagram.com";
-            if (referrer.startsWith(allowedReferrer)) {
-                aggiornaContatore();
-            } else {
-                let visite = localStorage.getItem('contatoreVisite') || 0;
-                document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
-            }
-        }
+// Funzione per verificare il referrer e aggiornare il contatore
+function verificaReferrer() {
+    const referrer = document.referrer;
+    const allowedReferrer = "https://www.instagram.com";
+    if (referrer.startsWith(allowedReferrer)) {
+        aggiornaContatore();
+    } else {
+        let visite = localStorage.getItem('contatoreVisite') || 0;
+        document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
+    }
+}
 
-        // Esegui la verifica al caricamento della pagina
-        verificaReferrer();
+// Funzione per inizializzare la visibilità del contatore
+function inizializzaContatore() {
+    let visite = localStorage.getItem('contatoreVisite') || 0;
+    document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
+}
+
+// Esegui la verifica al caricamento della pagina
+verificaReferrer();
+// Esegui l'inizializzazione del contatore anche al caricamento
+inizializzaContatore();
+
     </script>
 </body>
 </html>
