@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puro Impatto</title>
     <link rel="icon" type="image/png" href="sito/puro impatto (logo).png">
-    <meta property="og:title" content="Il mio sito interattivo" />
+    <meta property="og:title" content="Puro Impatto"/>
     <meta property="og:description" content="Benvenuti nel mio sito! Clicca per visitare le mie pagine." />
 
     <style>
@@ -16,7 +16,19 @@
             background: linear-gradient(135deg, #9b4d96, #ff6600); /* Viola e arancione in gradiente */
             color: white;
             text-align: center;
+            overflow-x: hidden; /* Evita lo scroll orizzontale */
+            position: relative;
         }
+
+        body {
+            background: linear-gradient(135deg, #9b4d96, #ff6600);
+            transition: background 1s ease-in-out;
+        }
+
+        body.clicked {
+            background: linear-gradient(135deg, #ff6600, #9b4d96);
+        }
+
 
         .container {
             width: 90%;
@@ -26,17 +38,66 @@
             background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-trasparente */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container img:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container img {
+            transition: opacity 0.5s ease;
+        }
+
+        .container img:hover {
+            opacity: 0.7;
+        }
+
+        .container:hover {
+            transform: scale(1.05); /* Leggera espansione */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombra più intensa */
+        }
+
+        .container:hover img {
+            filter: blur(5px);
+        }
+
+
+        .container.interactive {
+            perspective: 1000px;
+        }
+
+        .container.interactive:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
         }
 
         h1 {
             font-size: 36px;
             margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInText 1.5s 0.5s forwards;
         }
 
         p {
             font-size: 18px;
             margin-bottom: 20px;
             line-height: 1.6;
+            opacity: 0;
+            animation: fadeInText 1.5s 0.7s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         .button-link {
@@ -52,11 +113,12 @@
             cursor: pointer;
             width: 220px;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .button-link:hover {
-            background-color: #ff5f00; /* Arancione più scuro al passaggio del mouse */
-            transform: scale(1.05);
+            background-color: #ff5f00; /* Arancione più scuro */
+            transform: scale(1.1) rotate(5deg);
         }
 
         .share-button {
@@ -72,9 +134,33 @@
         }
 
         .share-button:hover {
-            background-color: #128c7e; /* Verde scuro WhatsApp */
+            background-color: #128c7e; /* Verde scuro */
             transform: scale(1.05);
         }
+
+        /* Effetto onda sui link */
+        .button-link:after, .share-button:after {
+            content: "";
+            position: absolute;
+            width: 150%;  /* Ridotto rispetto alla versione precedente */
+            height: 150%; /* Ridotto rispetto alla versione precedente */
+            background: rgba(255, 255, 255, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: all 0.5s;
+        }
+
+        .button-link:hover:after, .share-button:hover:after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .button-link:hover, .share-button:hover {
+            box-shadow: 0 0 15px 5px rgba(255, 102, 0, 0.8); /* Colore neon arancione */
+        }
+
 
         /* Media queries per dispositivi mobili */
         @media (max-width: 768px) {
@@ -90,14 +176,87 @@
             .button-link, .share-button {
                 width: 80%;
                 font-size: 16px;
+                animation: pulse 0.6s infinite alternate;
+            }
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(1.05);
+                }
             }
         }
+
+        /* Effetto Parallax sullo sfondo */
+        .parallax {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('sito/sfondo.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: -1;
+            animation: parallax 10s linear infinite;
+        }
+
+        @keyframes parallax {
+            0% { background-position: 0 0; }
+            50% { background-position: 50% 50%; }
+            100% { background-position: 0 0; }
+        }
+
+        .typing-text {
+            font-size: 24px;
+            font-family: "Courier New", Courier, monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #ff6600;
+            animation: typing 3s steps(40) 1s 1 normal both;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+        }
+
+        .rotate {
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
     </style>
 </head>
 <body>
+    <!-- Sezione parallax -->
+    <div class="parallax"></div>
+
     <!-- Header principale -->
-    <div class="container">
-        <h1>Benvenuto nel mio sito!</h1>
+    <div class="container interactive">
+        <h1>Benvenuto/a nel nostro sito!</h1>
         <p>Clicca sui pulsanti per visitare le mie pagine:</p>
         <a href="https://www.instagram.com/puroimpatto/" target="_blank" class="button-link">Instagram</a>
         <a href="https://www.tiktok.com/@calcio_e_console_" target="_blank" class="button-link">TikTok</a>
@@ -105,21 +264,53 @@
     </div>
 
     <!-- Sezione Chi siamo -->
-    <div class="container">
+    <div class="container interactive">
         <h1>Chi siamo</h1>
-        <p>Siamo un gruppo di giovani creativi appassionati di social media e design! La nostra pagina nasce come un progetto per esplorare, imparare e sperimentare nel mondo della comunicazione digitale. Con grafiche accattivanti, frasi ispiratrici e contenuti pensati per coinvolgere, vogliamo condividere idee che lasciano il segno.</p>
+        <p>Siamo un gruppo di giovani creativi appassionati di social media e design! La nostra pagina nasce come un progetto per esplorare, 
+            imparare e sperimentare nel mondo della comunicazione digitale. 
+            Con grafiche accattivanti, frasi ispiratrici e contenuti pensati per coinvolgere, vogliamo condividere idee che lasciano il segno.</p>
     </div>
 
     <!-- Sezione Cosa facciamo -->
-    <div class="container">
+    <div class="container interactive">
         <h1>Cosa facciamo</h1>
-        <p>Utilizziamo colori audaci, come l’arancione e il viola, per dare vita a contenuti moderni e dinamici. Creiamo post e grafiche perfetti per intrattenere, motivare e ispirare.</p>
+        <p>Utilizziamo colori audaci, come l’arancione e il viola, per dare vita a contenuti moderni e dinamici. 
+            Creiamo post e grafiche perfetti per intrattenere, motivare e ispirare.</p>
     </div>
 
     <!-- Sezione La nostra missione -->
-    <div class="container">
+    <div class="container interactive">
         <h1>La nostra missione</h1>
-        <p>Non siamo solo una pagina: siamo un laboratorio di creatività. Vogliamo crescere, imparare e connetterci con chi condivide la nostra passione per i social media, creando uno spazio dove l’immaginazione non ha limiti.</p>
+        <p>Non siamo solo una pagina: siamo un laboratorio di creatività. 
+            Vogliamo crescere, imparare e connetterci con chi condivide la nostra passione per i social media, creando uno spazio dove l’immaginazione non ha limiti.</p>
     </div>
+
+    <!-- Area per l'effetto cursore -->
+    <div class="cursor-effect" id="cursor-effect"></div>
+
+    <script>
+        // Funzione per muovere l'effetto cursore dietro il cursore
+        document.body.addEventListener('mousemove', function(event) {
+            const cursorEffect = document.getElementById('cursor-effect');
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+            cursorEffect.style.left = `${mouseX - cursorEffect.offsetWidth / 2}px`;
+            cursorEffect.style.top = `${mouseY - cursorEffect.offsetHeight / 2}px`;
+        });
+
+        window.addEventListener('scroll', function() {
+            const scrollElements = document.querySelectorAll('.scroll-fade');
+            scrollElements.forEach(function(el) {
+                if (el.getBoundingClientRect().top < window.innerHeight) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+
+        document.body.addEventListener('click', function() {
+            document.body.classList.toggle('clicked');
+        });
+
+    </script>
 </body>
 </html>
