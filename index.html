@@ -13,42 +13,32 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background: linear-gradient(135deg, #9b4d96, #ff6600); /* Viola e arancione in gradiente */
             color: white;
             text-align: center;
-            transition: all 0.3s ease; /* Transizione dolce per gli effetti */
-            overflow: hidden; /* Nasconde lo scroll */
         }
-        body:hover {
-            background: linear-gradient(135deg, #ff6600, #9b4d96); /* Invertire i colori del gradiente quando il cursore è sopra */
-        }
+
         .container {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-trasparente per far risaltare il contenuto */
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 80%;
+            width: 90%;
             max-width: 600px;
-            transition: all 0.3s ease; /* Transizione per il contenitore */
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-trasparente */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .container:hover {
-            transform: scale(1.05); /* Aumenta la dimensione del contenitore quando il cursore è sopra */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Aggiungi un'ombra più intensa */
-        }
+
         h1 {
             font-size: 36px;
             margin-bottom: 20px;
-            font-weight: bold;
         }
+
         p {
             font-size: 18px;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
+
         .button-link {
             display: block;
             margin: 15px auto;
@@ -58,64 +48,29 @@
             font-size: 18px;
             text-decoration: none;
             border: none;
-            border-radius: 50px; /* Pulsanti con bordi arrotondati */
+            border-radius: 50px;
             cursor: pointer;
             width: 220px;
-            position: relative;
-            overflow: hidden;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .button-link:hover {
             background-color: #ff5f00; /* Arancione più scuro al passaggio del mouse */
-            transform: scale(1.1) rotate(5deg); /* Aumenta leggermente la dimensione e ruota */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombra più intensa */
-        }
-
-        /* Effetto onda al click */
-        .button-link:active {
-            transform: scale(1);
-            box-shadow: none;
-        }
-
-        .button-link:before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            animation: wave 0.6s ease-out;
-        }
-
-        @keyframes wave {
-            to {
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        .description {
-            margin: 20px auto;
-            color: #fff;
-            font-size: 14px;
+            transform: scale(1.05);
         }
 
         .share-button {
             display: block;
-            margin: 20px auto;
-            background-color: #25d366; /* Verde WhatsApp */
+            margin: 15px auto;
             padding: 15px 30px;
-            border-radius: 50px;
+            background-color: #25d366; /* Verde WhatsApp */
             color: white;
             font-size: 18px;
             text-decoration: none;
-            width: 220px;
-            text-align: center;
+            border-radius: 50px;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
+
         .share-button:hover {
             background-color: #128c7e; /* Verde scuro WhatsApp */
             transform: scale(1.05);
@@ -123,93 +78,48 @@
 
         /* Media queries per dispositivi mobili */
         @media (max-width: 768px) {
-            /* Generale */
             .container {
-                padding: 40px;
-                width: 90%;
-                max-width: 600px;
-                margin: 20px auto; /* Spaziatura tra le sezioni */
-                box-sizing: border-box; /* Assicura un layout stabile */
+                padding: 15px;
             }
-
             h1 {
                 font-size: 28px;
             }
-
             p {
                 font-size: 16px;
-                line-height: 1.6; /* Migliora la leggibilità su telefono */
             }
-
-            /* Media queries per dispositivi mobili */
-            @media (max-width: 768px) {
-                .container {
-                    padding: 20px;
-                    margin: 10px auto; /* Riduce lo spazio verticale su schermi più piccoli */
-                }
-            }    
-                h1 {
-                    font-size: 24px; /* Riduce la dimensione del titolo */
-                }
-
-                p {
-                    font-size: 14px; /* Adatta il testo per schermi piccoli */
-                }
-
-                .button-link, .share-button {
-                    padding: 15px;
-                    font-size: 14px;
-                    width: 90%; /* Rende i pulsanti più larghi */
-                }
+            .button-link, .share-button {
+                width: 80%;
+                font-size: 16px;
+            }
         }
-
     </style>
 </head>
 <body>
-
+    <!-- Header principale -->
     <div class="container">
         <h1>Benvenuto nel mio sito!</h1>
         <p>Clicca sui pulsanti per visitare le mie pagine:</p>
         <a href="https://www.instagram.com/puroimpatto/" target="_blank" class="button-link">Instagram</a>
         <a href="https://www.tiktok.com/@calcio_e_console_" target="_blank" class="button-link">TikTok</a>
         <a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok%20-%20https%3A%2F%2Fwww.instagram.com%2Fpuroimpatto%2F%20-%20https%3A%2F%2Fwww.tiktok.com%2F%40calcio_e_console_" target="_blank" class="share-button">Condividi su WhatsApp</a>
-        <div class="description">
-            Puoi visitare i miei profili sui social cliccando sopra!
-        </div>
     </div>
-    
-    <!-- Nuova sezione: Chi siamo -->
-    <div class="container info-section">
+
+    <!-- Sezione Chi siamo -->
+    <div class="container">
         <h1>Chi siamo</h1>
         <p>Siamo un gruppo di giovani creativi appassionati di social media e design! La nostra pagina nasce come un progetto per esplorare, imparare e sperimentare nel mondo della comunicazione digitale. Con grafiche accattivanti, frasi ispiratrici e contenuti pensati per coinvolgere, vogliamo condividere idee che lasciano il segno.</p>
     </div>
-    
-    <!-- Nuova sezione: Cosa facciamo -->
-    <div class="container info-section">
+
+    <!-- Sezione Cosa facciamo -->
+    <div class="container">
         <h1>Cosa facciamo</h1>
         <p>Utilizziamo colori audaci, come l’arancione e il viola, per dare vita a contenuti moderni e dinamici. Creiamo post e grafiche perfetti per intrattenere, motivare e ispirare.</p>
     </div>
-    
-    <!-- Nuova sezione: La nostra missione -->
-    <div class="container info-section">
+
+    <!-- Sezione La nostra missione -->
+    <div class="container">
         <h1>La nostra missione</h1>
         <p>Non siamo solo una pagina: siamo un laboratorio di creatività. Vogliamo crescere, imparare e connetterci con chi condivide la nostra passione per i social media, creando uno spazio dove l’immaginazione non ha limiti.</p>
     </div>
-    
-    
-
-    <script>
-        // Funzione per attivare l'effetto di movimento con il cursore
-        document.querySelector('.container').addEventListener('mousemove', function(event) {
-            const x = (event.clientX / window.innerWidth) - 0.5;
-            const y = (event.clientY / window.innerHeight) - 0.5;
-            this.style.transform = `perspective(1000px) rotateX(${y * 15}deg) rotateY(${x * 15}deg)`;
-        });
-
-        // Ripristina la posizione quando il mouse esce dalla zona
-        document.querySelector('.container').addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-        });
-    </script>
 </body>
 </html>
