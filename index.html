@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il mio sito interattivo</title>
+    <link rel="icon" type="image/png" href="sito/puro impatto (logo).png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #9b4d96, #ff6600); /* Viola e arancione in gradiente */
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease; /* Transizione dolce per gli effetti */
+        }
+        body:hover {
+            background: linear-gradient(135deg, #ff6600, #9b4d96); /* Invertire i colori del gradiente quando il cursore è sopra */
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-trasparente per far risaltare il contenuto */
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            transition: all 0.3s ease; /* Transizione per il contenitore */
+        }
+        .container:hover {
+            transform: scale(1.05); /* Aumenta la dimensione del contenitore quando il cursore è sopra */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Aggiungi un'ombra più intensa */
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .button-link {
+            display: block;
+            margin: 15px auto;
+            padding: 15px 30px;
+            background-color: #ff7f50; /* Arancione brillante */
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px; /* Pulsanti con bordi arrotondati */
+            cursor: pointer;
+            width: 220px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .button-link:hover {
+            background-color: #ff5f00; /* Arancione più scuro al passaggio del mouse */
+            transform: scale(1.1); /* Aumenta leggermente la dimensione */
+        }
+        .counter {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .description {
+            margin: 20px auto;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        /* Media queries per dispositivi mobili */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                width: 90%; /* Più largo per dispositivi più piccoli */
+            }
+            h1 {
+                font-size: 28px; /* Adatta la dimensione del titolo */
+            }
+            .button-link {
+                width: 80%; /* Rende i pulsanti più grandi su dispositivi mobili */
+                padding: 20px;
+                font-size: 16px;
+            }
+            .counter {
+                font-size: 18px; /* Riduce leggermente la dimensione del contatore */
+            }
+            .description {
+                font-size: 12px; /* Riduce leggermente la dimensione della descrizione */
+            }
+        }
+
+        /* Effetto di tocco sui dispositivi mobili */
+        @media (pointer: coarse) {
+            .container:active {
+                transform: scale(1.05); /* Simula l'effetto di ingrandimento quando toccato */
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            }
+            .button-link:active {
+                transform: scale(1.05); /* Aggiunge un effetto sui pulsanti quando cliccati */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Benvenuto al mio sito!</h1>
+        <p>Clicca sui pulsanti per visitare le mie pagine:</p>
+        <a href="https://www.instagram.com/puroimpatto/" target="_blank" class="button-link">Instagram</a>
+        <a href="https://www.tiktok.com/@calcio_e_console_" target="_blank" class="button-link">TikTok</a>
+        <button class="button-link" onclick="mostraMessaggio()">Clicca per un saluto!</button>
+        <div class="description">
+            Il numero del contatore si aggiornerà solo quando entrerà un utente direttamente dal link condiviso su Instagram!
+        </div>
+        <div class="counter">
+            <span id="visit-counter"></span>
+        </div>
+    </div>
+
+    <script>
+        // Funzione per mostrare il messaggio di saluto
+        function mostraMessaggio() {
+            alert("Grazie per essere qui! 😊");
+        }
+
+        // Funzione per aggiornare il contatore
+        function aggiornaContatore() {
+            let visite = localStorage.getItem('contatoreVisite');
+            if (!visite) {
+                visite = 0;
+            }
+            visite = parseInt(visite) + 1;
+            localStorage.setItem('contatoreVisite', visite);
+            document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
+        }
+
+        // Funzione per verificare il referrer
+        function verificaReferrer() {
+            const referrer = document.referrer;
+            const allowedReferrer = "https://www.instagram.com";
+            if (referrer.startsWith(allowedReferrer)) {
+                aggiornaContatore();
+            } else {
+                let visite = localStorage.getItem('contatoreVisite') || 0;
+                document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
+            }
+        }
+
+        // Esegui la verifica al caricamento della pagina
+        verificaReferrer();
+    </script>
+</body>
+</html>
