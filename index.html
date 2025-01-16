@@ -126,11 +126,14 @@
     <script>
         const adminPassword = "tuapassword"; // Sostituisci con una password sicura
 
-        // Funzione per aggiornare il contatore solo se l'utente proviene da Instagram
+        // Funzione per aggiornare il contatore solo se l'utente proviene da Instagram (sia web che app)
         function aggiornaContatore() {
             const referrer = document.referrer;
             const allowedReferrer = "https://www.instagram.com";
-            if (referrer.startsWith(allowedReferrer)) {
+            const userAgent = navigator.userAgent.toLowerCase();
+
+            // Controlla se l'utente proviene da Instagram, sia web che app
+            if (referrer.startsWith(allowedReferrer) || userAgent.includes("instagram")) {
                 let visite = localStorage.getItem('contatoreVisite');
                 if (!visite) {
                     visite = 0;
