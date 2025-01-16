@@ -123,60 +123,79 @@
 
         /* Media queries per dispositivi mobili */
         @media (max-width: 768px) {
+            /* Generale */
             .container {
-                padding: 30px;
-                width: 90%; /* Più largo per dispositivi più piccoli */
+                padding: 40px;
+                width: 90%;
+                max-width: 600px;
+                margin: 20px auto; /* Spaziatura tra le sezioni */
+                box-sizing: border-box; /* Assicura un layout stabile */
             }
+
             h1 {
-                font-size: 28px; /* Adatta la dimensione del titolo */
+                font-size: 28px;
             }
-            .button-link, .share-button {
-                width: 80%; /* Rende i pulsanti più grandi su dispositivi mobili */
-                padding: 20px;
+
+            p {
                 font-size: 16px;
+                line-height: 1.6; /* Migliora la leggibilità su telefono */
             }
-            .description {
-                font-size: 12px; /* Riduce leggermente la dimensione della descrizione */
-            }
+
+            /* Media queries per dispositivi mobili */
+            @media (max-width: 768px) {
+                .container {
+                    padding: 20px;
+                    margin: 10px auto; /* Riduce lo spazio verticale su schermi più piccoli */
+                }
+            }    
+                h1 {
+                    font-size: 24px; /* Riduce la dimensione del titolo */
+                }
+
+                p {
+                    font-size: 14px; /* Adatta il testo per schermi piccoli */
+                }
+
+                .button-link, .share-button {
+                    padding: 15px;
+                    font-size: 14px;
+                    width: 90%; /* Rende i pulsanti più larghi */
+                }
         }
 
-        /* Effetto cursore */
-        .container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Ombra più intensa */
-        }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Benvenuto nel mio sito!</h1>
         <p>Clicca sui pulsanti per visitare le mie pagine:</p>
         <a href="https://www.instagram.com/puroimpatto/" target="_blank" class="button-link">Instagram</a>
         <a href="https://www.tiktok.com/@calcio_e_console_" target="_blank" class="button-link">TikTok</a>
-        <!-- Pulsante per condividere su WhatsApp -->
         <a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok%20-%20https%3A%2F%2Fwww.instagram.com%2Fpuroimpatto%2F%20-%20https%3A%2F%2Fwww.tiktok.com%2F%40calcio_e_console_" target="_blank" class="share-button">Condividi su WhatsApp</a>
         <div class="description">
             Puoi visitare i miei profili sui social cliccando sopra!
         </div>
     </div>
     
-    <!-- Sezione Chi siamo -->
-    <div class="container">
+    <!-- Nuova sezione: Chi siamo -->
+    <div class="container info-section">
         <h1>Chi siamo</h1>
         <p>Siamo un gruppo di giovani creativi appassionati di social media e design! La nostra pagina nasce come un progetto per esplorare, imparare e sperimentare nel mondo della comunicazione digitale. Con grafiche accattivanti, frasi ispiratrici e contenuti pensati per coinvolgere, vogliamo condividere idee che lasciano il segno.</p>
     </div>
     
-    <!-- Sezione Cosa facciamo -->
-    <div class="container">
+    <!-- Nuova sezione: Cosa facciamo -->
+    <div class="container info-section">
         <h1>Cosa facciamo</h1>
         <p>Utilizziamo colori audaci, come l’arancione e il viola, per dare vita a contenuti moderni e dinamici. Creiamo post e grafiche perfetti per intrattenere, motivare e ispirare.</p>
     </div>
     
-    <!-- Sezione La nostra missione -->
-    <div class="container">
+    <!-- Nuova sezione: La nostra missione -->
+    <div class="container info-section">
         <h1>La nostra missione</h1>
         <p>Non siamo solo una pagina: siamo un laboratorio di creatività. Vogliamo crescere, imparare e connetterci con chi condivide la nostra passione per i social media, creando uno spazio dove l’immaginazione non ha limiti.</p>
     </div>
+    
     
 
     <script>
