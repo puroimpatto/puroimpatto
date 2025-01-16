@@ -110,31 +110,34 @@
         <!-- Pulsante per condividere su WhatsApp -->
         <a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok%20-%20https%3A%2F%2Fwww.instagram.com%2Fpuroimpatto%2F%20-%20https%3A%2F%2Fwww.tiktok.com%2F%40calcio_e_console_" target="_blank" class="button-link">Condividi su WhatsApp</a>
         <div class="description">
-            Il numero del contatore si aggiornerà solo quando entrerà un utente direttamente dal link condiviso su Instagram!
+            Il numero del contatore si aggiornerà solo quando entrerà un utente da Instagram.
         </div>
         <div class="counter">
             <span id="visit-counter"></span>
         </div>
+
+        <!-- Aggiungi un modulo per il reset del contatore -->
+        <div class="reset-container">
+            <input type="password" id="password-input" placeholder="Inserisci la tua password per resettare" />
+            <button class="button-link" onclick="resetContatore()">Resetta contatore</button>
+        </div>
     </div>
 
     <script>
-        // Funzione per aggiornare il contatore
-        function aggiornaContatore() {
-            let visite = localStorage.getItem('contatoreVisite');
-            if (!visite) {
-                visite = 0;
-            }
-            visite = parseInt(visite) + 1;
-            localStorage.setItem('contatoreVisite', visite);
-            document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
-        }
+        const adminPassword = "tuapassword"; // Sostituisci con una password sicura
 
-        // Funzione per verificare il referrer e aggiornare il contatore
-        function verificaReferrer() {
+        // Funzione per aggiornare il contatore solo se l'utente proviene da Instagram
+        function aggiornaContatore() {
             const referrer = document.referrer;
             const allowedReferrer = "https://www.instagram.com";
             if (referrer.startsWith(allowedReferrer)) {
-                aggiornaContatore();
+                let visite = localStorage.getItem('contatoreVisite');
+                if (!visite) {
+                    visite = 0;
+                }
+                visite = parseInt(visite) + 1;
+                localStorage.setItem('contatoreVisite', visite);
+                document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
             } else {
                 let visite = localStorage.getItem('contatoreVisite') || 0;
                 document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
@@ -147,9 +150,21 @@
             document.getElementById('visit-counter').textContent = `Numero di visite: ${visite}`;
         }
 
+        // Funzione per resettare il contatore
+        function resetContatore() {
+            const password = document.getElementById('password-input').value;
+            if (password === adminPassword) {
+                localStorage.setItem('contatoreVisite', 0); // Resetta il contatore
+                alert("Contatore resettato con successo!");
+                inizializzaContatore(); // Rende visibile il contatore aggiornato
+            } else {
+                alert("Password errata! Non puoi resettare il contatore.");
+            }
+        }
+
         // Esegui la verifica al caricamento della pagina
-        verificaReferrer();
-        // Esegui l'inizializzazione del contatore anche al caricamento
+        aggiornaContatore();
+        // Esegui l'inizializzazione del contatore
         inizializzaContatore();
     </script>
 </body>
