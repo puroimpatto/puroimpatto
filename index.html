@@ -21,6 +21,7 @@
             color: white;
             text-align: center;
             transition: all 0.3s ease; /* Transizione dolce per gli effetti */
+            overflow: hidden; /* Nasconde lo scroll */
         }
         body:hover {
             background: linear-gradient(135deg, #ff6600, #9b4d96); /* Invertire i colori del gradiente quando il cursore è sopra */
@@ -60,16 +61,64 @@
             border-radius: 50px; /* Pulsanti con bordi arrotondati */
             cursor: pointer;
             width: 220px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
+
         .button-link:hover {
             background-color: #ff5f00; /* Arancione più scuro al passaggio del mouse */
-            transform: scale(1.1); /* Aumenta leggermente la dimensione */
+            transform: scale(1.1) rotate(5deg); /* Aumenta leggermente la dimensione e ruota */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombra più intensa */
         }
+
+        /* Effetto onda al click */
+        .button-link:active {
+            transform: scale(1);
+            box-shadow: none;
+        }
+
+        .button-link:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: wave 0.6s ease-out;
+        }
+
+        @keyframes wave {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
         .description {
             margin: 20px auto;
             color: #fff;
             font-size: 14px;
+        }
+
+        .share-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #25d366; /* Verde WhatsApp */
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            width: 220px;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .share-button:hover {
+            background-color: #128c7e; /* Verde scuro WhatsApp */
+            transform: scale(1.05);
         }
 
         /* Media queries per dispositivi mobili */
@@ -81,7 +130,7 @@
             h1 {
                 font-size: 28px; /* Adatta la dimensione del titolo */
             }
-            .button-link {
+            .button-link, .share-button {
                 width: 80%; /* Rende i pulsanti più grandi su dispositivi mobili */
                 padding: 20px;
                 font-size: 16px;
@@ -89,6 +138,12 @@
             .description {
                 font-size: 12px; /* Riduce leggermente la dimensione della descrizione */
             }
+        }
+
+        /* Effetto cursore */
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Ombra più intensa */
         }
     </style>
 </head>
@@ -99,10 +154,24 @@
         <a href="https://www.instagram.com/puroimpatto/" target="_blank" class="button-link">Instagram</a>
         <a href="https://www.tiktok.com/@calcio_e_console_" target="_blank" class="button-link">TikTok</a>
         <!-- Pulsante per condividere su WhatsApp -->
-        <a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok%20-%20https%3A%2F%2Fwww.instagram.com%2Fpuroimpatto%2F%20-%20https%3A%2F%2Fwww.tiktok.com%2F%40calcio_e_console_" target="_blank" class="button-link">Condividi su WhatsApp</a>
+        <a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok%20-%20https%3A%2F%2Fwww.instagram.com%2Fpuroimpatto%2F%20-%20https%3A%2F%2Fwww.tiktok.com%2F%40calcio_e_console_" target="_blank" class="share-button">Condividi su WhatsApp</a>
         <div class="description">
             Puoi visitare i miei profili sui social cliccando sopra!
         </div>
     </div>
+
+    <script>
+        // Funzione per attivare l'effetto di movimento con il cursore
+        document.querySelector('.container').addEventListener('mousemove', function(event) {
+            const x = (event.clientX / window.innerWidth) - 0.5;
+            const y = (event.clientY / window.innerHeight) - 0.5;
+            this.style.transform = `perspective(1000px) rotateX(${y * 15}deg) rotateY(${x * 15}deg)`;
+        });
+
+        // Ripristina la posizione quando il mouse esce dalla zona
+        document.querySelector('.container').addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+    </script>
 </body>
 </html>
