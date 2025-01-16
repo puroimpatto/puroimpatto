@@ -77,12 +77,6 @@
             color: #fff;
             font-size: 14px;
         }
-        .greeting-message {
-            display: none;
-            font-size: 18px;
-            color: #ff7f50;
-            margin-top: 20px;
-        }
 
         /* Media queries per dispositivi mobili */
         @media (max-width: 768px) {
@@ -113,8 +107,8 @@
         <p>Clicca sui pulsanti per visitare le mie pagine:</p>
         <a href="https://www.instagram.com/puroimpatto/" target="_blank" class="button-link">Instagram</a>
         <a href="https://www.tiktok.com/@calcio_e_console_" target="_blank" class="button-link">TikTok</a>
-        <button class="button-link" onclick="mostraMessaggio()">Clicca per un saluto!</button>
-        <div class="greeting-message" id="greetingMessage">Grazie per essere qui! 😊</div>
+        <!-- Pulsante per condividere su WhatsApp -->
+        <a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok%20-%20https%3A%2F%2Fwww.instagram.com%2Fpuroimpatto%2F%20-%20https%3A%2F%2Fwww.tiktok.com%2F%40calcio_e_console_" target="_blank" class="button-link">Condividi su WhatsApp</a>
         <div class="description">
             Il numero del contatore si aggiornerà solo quando entrerà un utente direttamente dal link condiviso su Instagram!
         </div>
@@ -124,15 +118,6 @@
     </div>
 
     <script>
-        // Funzione per mostrare il messaggio di saluto
-        function mostraMessaggio() {
-            const saluto = document.getElementById("greetingMessage");
-            saluto.style.display = "block"; // Mostra il messaggio di saluto
-            setTimeout(function() {
-                saluto.style.display = "none"; // Nasconde il messaggio dopo 3 secondi
-            }, 3000);
-        }
-
         // Funzione per aggiornare il contatore
         function aggiornaContatore() {
             let visite = localStorage.getItem('contatoreVisite');
