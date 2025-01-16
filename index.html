@@ -241,7 +241,7 @@
             }
         }
 
-        /* Effetto cursore */
+        /* Aggiungi l'effetto cursore solo sui dispositivi che NON sono mobili */
         .cursor-effect {
             position: fixed;
             width: 30px;
@@ -252,6 +252,30 @@
             z-index: 1000;
             transform: translate(-50%, -50%);
         }
+
+        /* Media query per dispositivi mobili */
+        @media (max-width: 768px) {
+            /* Disabilitare l'effetto cursore sui dispositivi mobili */
+            .cursor-effect {
+                display: none; /* Disabilita il cursore personalizzato */
+            }
+
+            .button-link, .share-button {
+                width: 80%;
+                font-size: 16px;
+                animation: pulse 0.6s infinite alternate;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
     </style>
 </head>
 <body>
