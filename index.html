@@ -337,6 +337,7 @@
     });
 
     window.addEventListener('scroll', function() {
+        alert('test8');
         const scrollElements = document.querySelectorAll('.scroll-fade');
         scrollElements.forEach(function(el) {
             if (el.getBoundingClientRect().top < window.innerHeight) {
