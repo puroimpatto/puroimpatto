@@ -325,30 +325,30 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
 
-    <script>
-        // Funzione per muovere l'effetto cursore dietro il cursore
-        document.body.addEventListener('mousemove', function(event) {
-            const cursorEffect = document.getElementById('cursor-effect');
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
-            cursorEffect.style.left = `${mouseX - cursorEffect.offsetWidth / 2}px`;
-            cursorEffect.style.top = `${mouseY - cursorEffect.offsetHeight / 2}px`;
-        });
+<script>
+    // Funzione per muovere l'effetto cursore dietro il cursore
+    document.body.addEventListener('mousemove', function(event) {
+        const cursorEffect = document.getElementById('cursor-effect');
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        cursorEffect.style.left = `${mouseX - cursorEffect.offsetWidth / 2}px`;
+        cursorEffect.style.top = `${mouseY - cursorEffect.offsetHeight / 2}px`;
+    });
 
-        window.addEventListener('scroll', function() {
-            const scrollElements = document.querySelectorAll('.scroll-fade');
-            scrollElements.forEach(function(el) {
-                if (el.getBoundingClientRect().top < window.innerHeight) {
-                    el.classList.add('visible');
-                }
-            });
+    window.addEventListener('scroll', function() {
+        const scrollElements = document.querySelectorAll('.scroll-fade');
+        scrollElements.forEach(function(el) {
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                el.classList.add('visible');
+            }
         });
+    });
 
-        document.body.addEventListener('click', function() {
-            document.body.classList.toggle('clicked');
-        });
+    document.body.addEventListener('click', function() {
+        document.body.classList.toggle('clicked');
+    });
 
-        // Configura Firebase
+    // Configura Firebase
     const firebaseConfig = {
         apiKey: "AIzaSyBrE1d8qs_a0s5ztjq1ZRz_ahaTtoKjBQk",
         authDomain: "puroimpatto.firebaseapp.com",
@@ -375,11 +375,11 @@
         }
     });
 
-        // Aggiorna il contatore sulla pagina
+    // Aggiorna il contatore sulla pagina
     db.ref('visitCounter').on('value', (snapshot) => {
         const visitCount = snapshot.val() || 0;
         document.getElementById('visit-counter').textContent = visitCount;
     });
 </script>
 </body>
-</html>
+</html>s
