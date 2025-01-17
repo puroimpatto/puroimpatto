@@ -322,6 +322,9 @@
     <!-- Area per l'effetto cursore -->
     <div class="cursor-effect" id="cursor-effect"></div>
 
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
+
     <script>
         // Funzione per muovere l'effetto cursore dietro il cursore
         document.body.addEventListener('mousemove', function(event) {
@@ -381,22 +384,37 @@
           measurementId: "G-XFJ79D71XG"
         };
         
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+       // Configura Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyBrE1d8qs_a0s5ztjq1ZRz_ahaTtoKjBQk",
+        authDomain: "puroimpatto.firebaseapp.com",
+        databaseURL: "https://puroimpatto-default-rtdb.firebaseio.com/",
+        projectId: "puroimpatto",
+        storageBucket: "puroimpatto.appspot.com",
+        messagingSenderId: "577000567654",
+        appId: "1:577000567654:web:b4d8af5e835eeecf3f8ea7",
+        measurementId: "G-XFJ79D71XG"
+    };
 
-        // Riferimento al contatore nel database
-        const visitCounterRef = firebase.database().ref('visitCounter');
+    // Inizializza Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
 
-        // Incrementa il contatore di visite
-        visitCounterRef.transaction((currentValue) => {
-            return (currentValue || 0) + 1;
-        });
+    // Incrementa il contatore
+    db.ref('visitCounter').get().then((snapshot) => {
+        if (!snapshot.exists()) {
+            db.ref('visitCounter').set(1);
+        } else {
+            db.ref('visitCounter').transaction((currentValue) => {
+                return (currentValue || 0) + 1;
+            });
+        }
+    });
 
-        // Mostra il numero aggiornato di visite
-        visitCounterRef.on('value', (snapshot) => {
-            const visitCount = snapshot.val();
-            document.getElementById('visit-counter').textContent = visitCount;
+    // Aggiorna il contatore sulla pagina
+    db.ref('visitCounter').on('value', (snapshot) => {
+        const visitCount = snapshot.val() || 0;
+        document.getElementById('visit-counter').textContent = visitCount;
         });
     </script>
 </body>
