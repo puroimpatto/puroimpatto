@@ -282,6 +282,12 @@
     <!-- Sezione parallax -->
     <div class="parallax"></div>
 
+    <!-- Contatore di visite -->
+    <div class="container interactive">
+        <h1>Contatore di Visite</h1>
+        <p>Questa pagina è stata visitata <span id="visit-counter">0</span> volte.</p>
+    </div>
+    
     <!-- Header principale -->
     <div class="container interactive">
         <h1>Benvenuto/a nel nostro sito!</h1>
@@ -338,6 +344,24 @@
         document.body.addEventListener('click', function() {
             document.body.classList.toggle('clicked');
         });
+
+        // Recupera il contatore di visite da localStorage
+        let visitCount = localStorage.getItem('visitCount');
+
+        // Se il contatore non esiste, inizializzalo a 0
+        if (!visitCount) {
+            visitCount = 0;
+        }
+
+        // Incrementa il contatore di visite
+        visitCount++;
+
+        // Salva il nuovo valore in localStorage
+        localStorage.setItem('visitCount', visitCount);
+
+        // Mostra il numero di visite sulla pagina
+        const visitCounterDisplay = document.getElementById('visit-counter');
+        visitCounterDisplay.textContent = visitCount;s
 
     </script>
 </body>
