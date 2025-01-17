@@ -375,10 +375,11 @@
         }
     });
 
-    // Aggiorna il contatore sulla pagina
+        // Aggiorna il contatore sulla pagina
     db.ref('visitCounter').on('value', (snapshot) => {
         const visitCount = snapshot.val() || 0;
         document.getElementById('visit-counter').textContent = visitCount;
-    </script>
+    });
+</script>
 </body>
 </html>
