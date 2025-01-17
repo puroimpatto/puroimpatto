@@ -367,6 +367,7 @@
     // Incrementa il contatore
     db.ref('visitCounter').get().then((snapshot) => {
         if (!snapshot.exists()) {
+            alert('test1');
             db.ref('visitCounter').set(1);
         } else {
             db.ref('visitCounter').transaction((currentValue) => {
