@@ -325,7 +325,10 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
 
-<script>
+<script type="module>
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+    import { getDatabase, ref, get, set, transaction, onValue } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js';
+    
     // Funzione per muovere l'effetto cursore dietro il cursore
     document.body.addEventListener('mousemove', function(event) {
         alert('test6');
@@ -352,42 +355,40 @@
         document.body.classList.toggle('clicked');
     });
 
-    // Configura Firebase
+   // Configura Firebase
     const firebaseConfig = {
-        alert('test3');
-        apiKey: "AIzaSyBrE1d8qs_a0s5ztjq1ZRz_ahaTtoKjBQk",
-        authDomain: "puroimpatto.firebaseapp.com",
-        databaseURL: "https://puroimpatto-default-rtdb.firebaseio.com/",
-        projectId: "puroimpatto",
-        storageBucket: "puroimpatto.appspot.com",
-        messagingSenderId: "577000567654",
-        appId: "1:577000567654:web:b4d8af5e835eeecf3f8ea7",
-        measurementId: "G-XFJ79D71XG"
-    };
+    apiKey: "AIzaSyBrE1d8qs_a0s5ztjq1ZRz_ahaTtoKjBQk",
+    authDomain: "puroimpatto.firebaseapp.com",
+    databaseURL: "https://puroimpatto-default-rtdb.firebaseio.com/",
+    projectId: "puroimpatto",
+    storageBucket: "puroimpatto.appspot.com",
+    messagingSenderId: "577000567654",
+    appId: "1:577000567654:web:b4d8af5e835eeecf3f8ea7",
+    measurementId: "G-XFJ79D71XG"
+  };
 
-    // Inizializza Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-
-    // Incrementa il contatore
-    db.ref('visitCounter').get().then((snapshot) => {
-        if (!snapshot.exists()) {
-            alert('test1');
-            db.ref('visitCounter').set(1);
-        } else {
-            alert('test2');
-            db.ref('visitCounter').transaction((currentValue) => {
+          // Inizializza Firebase
+          const app = initializeApp(firebaseConfig);
+          const db = getDatabase(app);
+        
+          // Imposta inizialmente il valore del contatore se non esiste
+          const counterRef = ref(db, 'visitCounter');
+          get(counterRef).then((snapshot) => {
+            if (!snapshot.exists()) {
+              set(counterRef, 1); // Imposta a 1 la visita iniziale
+            } else {
+              // Incrementa il contatore ogni volta che qualcuno visita
+              transaction(counterRef, (currentValue) => {
                 return (currentValue || 0) + 1;
-            });
-        }
-    });
-
-    // Aggiorna il contatore sulla pagina
-    db.ref('visitCounter').on('value', (snapshot) => {
-        alert('test7');
-        const visitCount = snapshot.val() || 0;
-        document.getElementById('visit-counter').textContent = visitCount;
-    });
-</script>
+              });
+            }
+          });
+        
+          // Ascolta i cambiamenti nel contatore e aggiorna la pagina
+          onValue(counterRef, (snapshot) => {
+            const visitCount = snapshot.val() || 0;
+            document.getElementById('visit-counter').textContent = visitCount;
+          });
+    </script>
 </body>
 </html>
