@@ -328,6 +328,7 @@
 <script>
     // Funzione per muovere l'effetto cursore dietro il cursore
     document.body.addEventListener('mousemove', function(event) {
+        alert('test6');
         const cursorEffect = document.getElementById('cursor-effect');
         const mouseX = event.clientX;
         const mouseY = event.clientY;
@@ -339,17 +340,20 @@
         const scrollElements = document.querySelectorAll('.scroll-fade');
         scrollElements.forEach(function(el) {
             if (el.getBoundingClientRect().top < window.innerHeight) {
+                alert('test5');
                 el.classList.add('visible');
             }
         });
     });
 
     document.body.addEventListener('click', function() {
+        alert('test4');
         document.body.classList.toggle('clicked');
     });
 
     // Configura Firebase
     const firebaseConfig = {
+        alert('test3');
         apiKey: "AIzaSyBrE1d8qs_a0s5ztjq1ZRz_ahaTtoKjBQk",
         authDomain: "puroimpatto.firebaseapp.com",
         databaseURL: "https://puroimpatto-default-rtdb.firebaseio.com/",
@@ -379,9 +383,10 @@
 
     // Aggiorna il contatore sulla pagina
     db.ref('visitCounter').on('value', (snapshot) => {
+        alert('test7');
         const visitCount = snapshot.val() || 0;
         document.getElementById('visit-counter').textContent = visitCount;
     });
 </script>
 </body>
-</html>s
+</html>
