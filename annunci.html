@@ -6,6 +6,7 @@
     <title>Puro Impatto</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link href="stile.css" rel="stylesheet" type="text/css">
+    <script src="script.js" defer></script>
     <meta property="og:title" content="Puro Impatto"/>
     <meta property="og:description" content="Trovi qui tutte le informazioni riguardo Puro Impatto!" />
 </head>
@@ -48,60 +49,7 @@
     <div class="cursor-effect" id="cursor-effect"></div>
 
 
-    <script>
-        // Aggiungi classe per ridurre l'opacità dopo l'animazione
-        window.addEventListener('load', function() {
-                const logo = document.getElementById('logo');
-                logo.classList.add('loaded');
-            });
-    
-        // Funzione per muovere l'effetto cursore dietro il cursore
-        document.body.addEventListener('mousemove', function(event) {
-            const cursorEffect = document.getElementById('cursor-effect');
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
-            cursorEffect.style.left = `${mouseX - cursorEffect.offsetWidth / 2}px`;
-            cursorEffect.style.top = `${mouseY - cursorEffect.offsetHeight / 2}px`;
-        });
-    
-        document.body.addEventListener('click', function() {
-            document.body.classList.toggle('clicked');
-        });
-    
-        // URL del file JSON remoto
-    const jsonUrl = "https://tuosito.com/annunci.json";
-
-    // Elemento HTML per gli annunci
-    const annunciDiv = document.getElementById('annunci');
-
-    // Funzione per caricare gli annunci
-    async function caricaAnnunci() {
-        try {
-            const response = await fetch(jsonUrl);
-            const annunci = await response.json();
-
-            // Genera il contenuto HTML dinamico
-            let html = `<h2>Annunci</h2>`;
-            annunci.forEach(annuncio => {
-                html += `
-                    <div class="annuncio">
-                        <h3>${annuncio.titolo}</h3>
-                        <p>${annuncio.descrizione}</p>
-                    </div>
-                `;
-            });
-
-            annunciDiv.innerHTML = html;
-
-        } catch (error) {
-            console.error("Errore durante il caricamento degli annunci:", error);
-            annunciDiv.innerHTML = `<p>Impossibile caricare gli annunci al momento.</p>`;
-        }
-    }
-
-    // Carica gli annunci al caricamento della pagina
-    caricaAnnunci();
-        
-    </script>
+    <!-- Collegamento al file JavaScript -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>

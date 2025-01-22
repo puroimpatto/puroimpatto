@@ -1,5 +1,12 @@
 [
-    { "titolo": "Promozione Instagram", "descrizione": "Segui la nostra pagina per sconti esclusivi!" },
-    { "titolo": "Nuovo Video TikTok", "descrizione": "Guarda subito il nostro ultimo video su TikTok!" },
-    { "titolo": "Partecipa al Sondaggio", "descrizione": "Dai la tua opinione e vinci fantastici premi!" }
+    { 
+        "id": "1", 
+        "titolo": "Nuovo Format", 
+        "descrizione": "Clicca qui sotto per nuovi aggiornamenti sui format!" 
+    },
+    {
+        "id": "2",
+        "titolo": "Sondaggio disponibile",
+        "descrizione": "Partecipa al sondaggio per renderti partecipe del progetto!"
+    }
 ]

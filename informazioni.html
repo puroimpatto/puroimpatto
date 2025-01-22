@@ -6,6 +6,7 @@
     <title>Puro Impatto</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link href="stile.css" rel="stylesheet" type="text/css">
+    <script src="script.js" defer></script>
     <meta property="og:title" content="Puro Impatto"/>
     <meta property="og:description" content="Trovi qui tutte le informazioni riguardo Puro Impatto!" />
 </head>
@@ -62,25 +63,7 @@
     <!-- Area per l'effetto cursore -->
     <div class="cursor-effect" id="cursor-effect"></div>
 
-<script>
-    // Aggiungi classe per ridurre l'opacità dopo l'animazione
-    window.addEventListener('load', function() {
-            const logo = document.getElementById('logo');
-            logo.classList.add('loaded');
-        });
-
-    // Funzione per muovere l'effetto cursore dietro il cursore
-    document.body.addEventListener('mousemove', function(event) {
-        const cursorEffect = document.getElementById('cursor-effect');
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-        cursorEffect.style.left = `${mouseX - cursorEffect.offsetWidth / 2}px`;
-        cursorEffect.style.top = `${mouseY - cursorEffect.offsetHeight / 2}px`;
-    });
-
-    document.body.addEventListener('click', function() {
-        document.body.classList.toggle('clicked');
-    });
-</script>
+    <!-- Collegamento al file JavaScript -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
