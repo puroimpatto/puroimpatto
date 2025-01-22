@@ -2,37 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #9b4d96, #ff6600); /* Viola e arancione in gradiente */
+    background: linear-gradient(135deg, #9b4d96, #ff6600);
     color: white;
     text-align: center;
     overflow-x: hidden;
     position: relative;
     transition: background 1s ease-in-out;
-}
-
-.logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: fadeIn 5s forwards, zoomIn 3s ease-in-out 1 forwards;
-    opacity: 0;
-}
-
-/* Dopo la prima animazione, il logo diventa più trasparente */
-.logo.loaded {
-    opacity: 0.4;
-    transition: opacity 1s ease-out;
-}
-
-@keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-@keyframes zoomIn {
-    0% { transform: translate(-50%, -50%) scale(0.5); }
-    100% { transform: translate(-50%, -50%) scale(1); }
 }
 
 body.clicked {
@@ -44,16 +19,13 @@ body.clicked {
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-trasparente */
+    background-color: rgba(0, 0, 0, 0.3); 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     position: relative;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+    z-index: 5;
 }
-
-
 
 .container img {
     transition: opacity 0.5s ease;
@@ -72,32 +44,17 @@ body.clicked {
     filter: blur(5px);
 }
 
-.container.interactive {
-    perspective: 1000px;
-}
-
-.container.interactive:hover {
-    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
-}
-
-h1 {
+h1, p {
     font-size: 36px;
     margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeInText 1.5s 0.5s forwards;
+    opacity: 1; /* Imposta opacità a 1 per garantire la visibilità */
+    animation: none; /* Rimuoviamo animazione fade */
 }
 
 p {
     font-size: 18px;
     margin-bottom: 20px;
     line-height: 1.6;
-    opacity: 0;
-    animation: fadeInText 1.5s 0.7s forwards;
-}
-
-@keyframes fadeInText {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 .button-link {
@@ -287,21 +244,176 @@ p {
     }
 }
 
+/* Sezione Annunci - Nuovo stile */
+.annunci-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95); /* Aggiunto un bianco più luminoso */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombra più morbida e intensa */
+    animation: fadeIn 0.8s ease-out; /* Animazione di ingresso */
+    position: relative;
+    z-index: 2;
+}
+
+/* Animazione di ingresso per gli annunci */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.annunci-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.annunci-container p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+    text-align: center;
+}
+
 .annuncio {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra più morbida */
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.annuncio:hover {
+    transform: scale(1.03); /* Leggera espansione */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Ombra più intensa */
 }
 
 .annuncio h3 {
+    font-size: 1.2rem;
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .annuncio p {
-    color: #666;
-    font-size: 0.9rem;
+    color: #444;
+    font-size: 1rem;
+}
+
+/* Separazione tra logo e contenuti */
+.container, .annuncio {
+    margin-top: 80px; /* Aumentato per una separazione più visibile */
+}
+
+#contatti {
+    background-color: #fff; /* Bianco per il fondo */
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 6px solid #e74c3c; /* Rosso più marcato per il bordo superiore */
+    border-radius: 15px; /* Angoli arrotondati */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+}
+
+#contatti h2 {
+    font-size: 2.8rem; /* Titolo più grande per un maggiore impatto */
+    margin-bottom: 20px;
+    color: #e74c3c; /* Rosso brillante per il titolo */
+    font-weight: bold;
+}
+
+#contatti p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #444; /* Testo neutro per una leggibilità ottimale */
+    line-height: 1.6;
+}
+
+#contatti form {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+#contatti input, #contatti textarea {
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #e74c3c; /* Rosso per i bordi */
+    border-radius: 10px;
+    width: 100%;
+    transition: border 0.3s ease-in-out;
+}
+
+#contatti input:focus, #contatti textarea:focus {
+    border-color: #c0392b; /* Rosso scuro per il focus */
+    outline: none;
+}
+
+#contatti button {
+    background-color: #e74c3c; /* Rosso brillante per il bottone */
+    color: white;
+    font-size: 1.3rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contatti button:hover {
+    background-color: #c0392b; /* Rosso scuro per l'hover */
+    transform: scale(1.05); /* Leggera espansione */
+}
+
+#contatti .button-link, #contatti .share-button {
+    background-color: #e74c3c; /* Rosso per i pulsanti */
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#contatti .button-link:hover, #contatti .share-button:hover {
+    background-color: #c0392b; /* Rosso scuro per hover */
+    transform: scale(1.05);
+}
+
+/* Separazione tra la sezione contatti e gli altri contenuti */
+.parallax {
+    margin-bottom: 50px; /* Distanza tra parallax e contenuti */
+}
+
+/* Adattamenti per dispositivi mobili */
+@media (max-width: 768px) {
+    #contatti {
+        padding: 30px 15px; /* Ridurre padding su dispositivi mobili */
+    }
+
+    #contatti h2 {
+        font-size: 2.2rem;
+    }
+
+    #contatti p {
+        font-size: 1rem;
+    }
+
+    #contatti button {
+        font-size: 1.1rem;
+    }
 }
