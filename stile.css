@@ -317,6 +317,36 @@ p {
     margin-top: 80px; /* Aumentato per una separazione più visibile */
 }
 
+/* Stili per la pagina dei dettagli */
+#dettagli-annuncio {
+    padding: 20px;
+}
+
+#dettagli-annuncio h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+#dettagli-annuncio p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#dettagli-annuncio strong {
+    font-weight: bold;
+    color: #ff9900;
+}
+
+#dettagli-annuncio a {
+    font-size: 16px;
+    color: #ff9900;
+    text-decoration: none;
+}
+
+#dettagli-annuncio a:hover {
+    text-decoration: underline;
+}
+
 #contatti {
     background-color: #fff; /* Bianco per il fondo */
     padding: 50px 20px;

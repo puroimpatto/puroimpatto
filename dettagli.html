@@ -28,7 +28,7 @@
                 if (!response.ok) throw new Error('Errore nella risposta');
                 const annunci = await response.json();
                 const annuncio = annunci.find(item => item.id === annuncioId);
-                
+
                 if (!annuncio) {
                     dettagliDiv.innerHTML = `<p>Annuncio non trovato.</p>`;
                     return;
@@ -37,6 +37,7 @@
                 dettagliDiv.innerHTML = `
                     <h1>${annuncio.titolo}</h1>
                     <p>${annuncio.descrizione}</p>
+                    <p><strong>Dettagli:</strong> ${annuncio.dettagli}</p> <!-- Nuovo testo aggiunto -->
                     <a href="annunci.html">Torna agli annunci</a>
                 `;
             } catch (error) {

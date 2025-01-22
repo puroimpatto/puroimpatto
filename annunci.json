@@ -2,11 +2,13 @@
     { 
         "id": "1", 
         "titolo": "Nuovo Format", 
-        "descrizione": "Clicca qui sotto per nuovi aggiornamenti sui format!" 
+        "descrizione": "Clicca qui sotto per nuovi aggiornamenti sui format!",
+        "dettagli": "Con questo nuovo format troverai all'interno della pagina Tiktok, solamente li video d'impatto, mentre nella pagina Instagram sarà possibile trovare sia video che imaggini motivazionali."
     },
     {
         "id": "2",
         "titolo": "Sondaggio disponibile",
-        "descrizione": "Partecipa al sondaggio per renderti partecipe del progetto!"
+        "descrizione": "Partecipa al sondaggio per renderti partecipe del progetto!",
+        "dettagli": "Ecco il sondaggio che vi permette di partecipare attivamente con la pagina con le vostre idee: https://www.canva.com/design/DAGcfi7j3Uw/agI4A2B-aWPZKAOKRiI11A/edit"
     }
 ]
