@@ -22,28 +22,28 @@ document.body.classList.toggle('clicked');
 
 const jsonUrl = "https://raw.githubusercontent.com/puroimpatto/puroimpatto/refs/heads/main/annunci.json";
 
-        async function caricaAnnunci() {
-            const container = document.getElementById('lista-annunci');
-            try {
-                const response = await fetch(jsonUrl);
-                if (!response.ok) throw new Error('Errore nel caricamento degli annunci');
-                const annunci = await response.json();
+async function caricaAnnunci() {
+    const annunciDiv = document.getElementById('annunci');
+    try {
+        const response = await fetch(jsonUrl);
+        if (!response.ok) throw new Error('Errore nella risposta');
+        const annunci = await response.json();
+        let html = `<h2>Annunci</h2>`;
+        annunci.forEach(annuncio => {
+            html += `
+                <div class="annuncio">
+                    <h3>${annuncio.titolo}</h3>
+                    <p>${annuncio.descrizione}</p>
+                    <a href="dettagli.html?id=${annuncio.id}" target="_blank">Leggi di più</a>
+                </div>
+            `;
+        });
+        annunciDiv.innerHTML = html;
+    } catch (error) {
+        console.error('Errore:', error);
+        annunciDiv.innerHTML = `<p>Impossibile caricare gli annunci al momento.</p>`;
+    }
+}
 
-                // Ordina gli annunci per data (dal più recente al più vecchio)
-                annunci.sort((a, b) => new Date(b.data) - new Date(a.data));
-
-                // Crea l'elenco HTML
-                container.innerHTML = annunci.map(annuncio => `
-                    <div class="annuncio">
-                        <h2>${annuncio.titolo}</h2>
-                        <p>${annuncio.descrizione}</p>
-                        <p><strong>Pubblicato il:</strong> ${new Date(annuncio.data).toLocaleString('it-IT')}</p>
-                        <a href="dettagli.html?id=${annuncio.id}">Leggi di più</a>
-                    </div>
-                `).join('');
-            } catch (error) {
-                container.innerHTML = `<p>Errore nel caricamento degli annunci.</p>`;
-            }
-        }
-
-        caricaAnnunci();s
+// Carica gli annunci quando la pagina è pronta
+window.onload = caricaAnnunci;

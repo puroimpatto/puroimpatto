@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dettagli Annuncio</title>
+    <title>Puro Impatto</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link href="stile.css" rel="stylesheet" type="text/css">
+    <meta property="og:title" content="Puro Impatto"/>
+    <meta property="og:description" content="Benvenuti nel mio sito! Clicca per visitare le mie pagine." />
 </head>
 <body>
     <div id="dettagli-annuncio" class="container">
@@ -14,7 +17,7 @@
     <script>
         const jsonUrl = "https://raw.githubusercontent.com/puroimpatto/puroimpatto/refs/heads/main/annunci.json";
 
-        // Recupera l'ID dall'URL
+        // Ottieni l'ID dall'URL
         const urlParams = new URLSearchParams(window.location.search);
         const annuncioId = urlParams.get('id');
 
@@ -33,8 +36,8 @@
 
                 dettagliDiv.innerHTML = `
                     <h1>${annuncio.titolo}</h1>
-                    <p><strong>Dettagli:</strong> ${annuncio.dettagli || 'Nessun dettaglio disponibile.'}</p>
-                    <p><strong>Pubblicato il:</strong> ${new Date(annuncio.data).toLocaleString('it-IT')}</p>
+                    <p>${annuncio.descrizione}</p>
+                    <p><strong>Dettagli:</strong> ${annuncio.dettagli}</p> <!-- Nuovo testo aggiunto -->
                     <a href="annunci.html">Torna agli annunci</a>
                 `;
             } catch (error) {
