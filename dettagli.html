@@ -21,30 +21,32 @@
         const urlParams = new URLSearchParams(window.location.search);
         const annuncioId = urlParams.get('id');
 
-        async function caricaDettagli() {
-            const dettagliDiv = document.getElementById('dettagli-annuncio');
+        async function caricaAnnunci() {
+            const container = document.getElementById('lista-annunci');
             try {
                 const response = await fetch(jsonUrl);
-                if (!response.ok) throw new Error('Errore nella risposta');
+                if (!response.ok) throw new Error('Errore nel caricamento degli annunci');
                 const annunci = await response.json();
-                const annuncio = annunci.find(item => item.id === annuncioId);
 
-                if (!annuncio) {
-                    dettagliDiv.innerHTML = `<p>Annuncio non trovato.</p>`;
-                    return;
-                }
+                // Ordina gli annunci per data (dal più recente al più vecchio)
+                annunci.sort((a, b) => new Date(b.data) - new Date(a.data));
 
-                dettagliDiv.innerHTML = `
-                    <h1>${annuncio.titolo}</h1>
-                    <p><strong>Dettagli:</strong> ${annuncio.dettagli}</p> <!-- Nuovo testo aggiunto -->
-                    <a href="annunci.html">Torna agli annunci</a>
-                `;
+                // Crea l'elenco HTML degli annunci
+                container.innerHTML = annunci.map(annuncio => `
+                    <div class="annuncio">
+                        <h2>${annuncio.titolo}</h2>
+                        <p>${annuncio.descrizione}</p>
+                        <p><strong>Dettagli:</strong> ${annuncio.dettagli}</p> <!-- Nuovo testo aggiunto -->
+                        <p><strong>Pubblicato il:</strong> ${new Date(annuncio.data).toLocaleString('it-IT')}</p>
+                        <a href="dettagli.html?id=${annuncio.id}">Leggi di più</a>
+                    </div>
+                `).join('');
             } catch (error) {
-                dettagliDiv.innerHTML = `<p>Errore nel caricamento dei dettagli dell'annuncio.</p>`;
+                container.innerHTML = `<p>Errore nel caricamento degli annunci.</p>`;
             }
         }
 
-        caricaDettagli();
+        caricaAnnunci();
     </script>
 </body>
 </html>
