@@ -47,8 +47,8 @@ body.clicked {
 h1, p {
     font-size: 36px;
     margin-bottom: 20px;
-    opacity: 1; /* Imposta opacità a 1 per garantire la visibilità */
-    animation: none; /* Rimuoviamo animazione fade */
+    opacity: 1;
+    animation: none;
 }
 
 p {
@@ -95,12 +95,11 @@ p {
     transform: scale(1.05);
 }
 
-/* Effetto onda sui link */
 .button-link:after, .share-button:after {
     content: "";
     position: absolute;
-    width: 150%;  /* Ridotto rispetto alla versione precedente */
-    height: 150%; /* Ridotto rispetto alla versione precedente */
+    width: 150%;
+    height: 150%;
     background: rgba(255, 255, 255, 0.3);
     top: 50%;
     left: 50%;
@@ -118,7 +117,6 @@ p {
     box-shadow: 0 0 15px 5px rgba(255, 102, 0, 0.8); /* Colore neon arancione */
 }
 
-/* Media queries per dispositivi mobili */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -144,7 +142,6 @@ p {
     }
 }
 
-/* Parallax per il fondo */
 .parallax {
     position: fixed;
     top: 0;
@@ -209,7 +206,6 @@ p {
     }
 }
 
-/* Aggiungi l'effetto cursore solo sui dispositivi che NON sono mobili */
 .cursor-effect {
     position: fixed;
     width: 30px;
@@ -221,9 +217,7 @@ p {
     transform: translate(-50%, -50%);
 }
 
-/* Media query per dispositivi mobili */
 @media (max-width: 768px) {
-    /* Disabilitare l'effetto cursore sui dispositivi mobili */
     .cursor-effect {
         display: none; /* Disabilita il cursore personalizzato */
     }
@@ -249,15 +243,14 @@ p {
     max-width: 900px;
     margin: 40px auto;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.95); /* Aggiunto un bianco più luminoso */
+    background-color: rgba(255, 255, 255, 0.95); 
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombra più morbida e intensa */
-    animation: fadeIn 0.8s ease-out; /* Animazione di ingresso */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out; 
     position: relative;
     z-index: 2;
 }
 
-/* Animazione di ingresso per gli annunci */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -291,14 +284,14 @@ p {
     border-radius: 10px;
     margin: 20px 0;
     padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra più morbida */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 .annuncio:hover {
-    transform: scale(1.03); /* Leggera espansione */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Ombra più intensa */
+    transform: scale(1.03); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
 }
 
 .annuncio h3 {
@@ -312,12 +305,10 @@ p {
     font-size: 1rem;
 }
 
-/* Separazione tra logo e contenuti */
 .container, .annuncio {
-    margin-top: 80px; /* Aumentato per una separazione più visibile */
+    margin-top: 80px; 
 }
 
-/* Stili per la pagina dei dettagli */
 #dettagli-annuncio {
     padding: 20px;
 }
@@ -330,120 +321,115 @@ p {
 #dettagli-annuncio p {
     font-size: 18px;
     line-height: 1.6;
+    color: #555;
 }
 
-#dettagli-annuncio strong {
-    font-weight: bold;
-    color: #ff9900;
-}
-
-#dettagli-annuncio a {
-    font-size: 16px;
-    color: #ff9900;
-    text-decoration: none;
-}
-
-#dettagli-annuncio a:hover {
-    text-decoration: underline;
-}
-
-#contatti {
-    background-color: #fff; /* Bianco per il fondo */
-    padding: 50px 20px;
-    text-align: center;
-    border-top: 6px solid #e74c3c; /* Rosso più marcato per il bordo superiore */
-    border-radius: 15px; /* Angoli arrotondati */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Leggera ombra */
-}
-
-#contatti h2 {
-    font-size: 2.8rem; /* Titolo più grande per un maggiore impatto */
-    margin-bottom: 20px;
-    color: #e74c3c; /* Rosso brillante per il titolo */
-    font-weight: bold;
-}
-
-#contatti p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #444; /* Testo neutro per una leggibilità ottimale */
-    line-height: 1.6;
-}
-
-#contatti form {
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-
-#contatti input, #contatti textarea {
-    margin: 10px 0;
-    padding: 15px;
-    font-size: 1.1rem;
-    border: 2px solid #e74c3c; /* Rosso per i bordi */
+/* Centrare la tabella e aggiungere margini e padding */
+.orario {
+    width: 80%; /* Impostiamo una larghezza per la tabella */
+    max-width: 800px; /* Impostiamo una larghezza massima */
+    margin: 30px auto; /* Centrato con margine */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.table {
+    width: 100%; /* La tabella prende tutta la larghezza */
+    border-collapse: collapse; /* Rimuove gli spazi tra le celle */
+    text-align: center; /* Centra il contenuto delle celle */
+    margin: 0 auto; /* Centra la tabella */
+}
+
+.table-container {
+    width: 90%; /* Impostiamo la larghezza del contenitore della tabella */
+    max-width: 900px; /* Larghezza massima per il contenitore */
+    margin: 30px auto; /* Centrato */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile della tabella */
+.styled-table {
     width: 100%;
-    transition: border 0.3s ease-in-out;
-}
-
-#contatti input:focus, #contatti textarea:focus {
-    border-color: #c0392b; /* Rosso scuro per il focus */
-    outline: none;
-}
-
-#contatti button {
-    background-color: #e74c3c; /* Rosso brillante per il bottone */
-    color: white;
-    font-size: 1.3rem;
-    padding: 15px 30px;
-    border: none;
+    border-collapse: collapse;
+    margin-top: 20px;
     border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    overflow: hidden; /* Per evitare spigoli duri */
 }
 
-#contatti button:hover {
-    background-color: #c0392b; /* Rosso scuro per l'hover */
-    transform: scale(1.05); /* Leggera espansione */
+.styled-table th, .styled-table td {
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
 }
 
-#contatti .button-link, #contatti .share-button {
-    background-color: #e74c3c; /* Rosso per i pulsanti */
+.table th, .table td {
+    padding: 15px; /* Aggiungi padding alle celle */
+    border: 1px solid #ddd; /* Aggiungi il bordo alle celle */
+    font-size: 18px; /* Impostiamo una dimensione del font */
+}
+
+/* Intestazione della tabella */
+.styled-table th {
+    background-color: #ff6600; /* Arancione brillante */
     color: white;
-    font-size: 1.1rem;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    font-weight: bold;
+    border-top: 2px solid #fff;
 }
 
-#contatti .button-link:hover, #contatti .share-button:hover {
-    background-color: #c0392b; /* Rosso scuro per hover */
-    transform: scale(1.05);
+/* Colore di sfondo per le celle generali */
+.table td {
+    background-color: #d0f0f0; /* Colore di sfondo per le celle (azzurro chiaro) */
 }
 
-/* Separazione tra la sezione contatti e gli altri contenuti */
-.parallax {
-    margin-bottom: 50px; /* Distanza tra parallax e contenuti */
+/* Colore di sfondo per le celle contenenti giorni, orari e tipo */
+.table td:nth-child(1), /* Prima colonna (giorni) */
+.table td:nth-child(2), /* Seconda colonna (orari) */
+.table td:nth-child(3) { /* Terza colonna (tipo) */
+    background-color: #b0b0b0; /* Colore di sfondo grigio scuro per evidenziare */
+    color: #333; /* Colore del testo per maggiore leggibilità */
 }
 
-/* Adattamenti per dispositivi mobili */
+/* Righe alternate per migliorare la leggibilità */
+.styled-table tbody tr:nth-child(odd) {
+    background-color: rgba(255, 102, 0, 0.1);
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 102, 0, 0.05);
+}
+
+/* Hover sui righi della tabella */
+.styled-table tbody tr:hover {
+    background-color: rgba(255, 102, 0, 0.2);
+    cursor: pointer; /* Per far capire che è interattivo */
+}
+
+/* Style per i dati delle celle */
+.styled-table td {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsività per dispositivi mobili */
 @media (max-width: 768px) {
-    #contatti {
-        padding: 30px 15px; /* Ridurre padding su dispositivi mobili */
+    .styled-table th, .styled-table td {
+        font-size: 14px;
+        padding: 10px;
     }
+}
 
-    #contatti h2 {
-        font-size: 2.2rem;
-    }
+/* Applicato a tutti i contenitori che desideri rendere interattivi */
+* {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per ingrandimento e ombra */
+}
 
-    #contatti p {
-        font-size: 1rem;
-    }
-
-    #contatti button {
-        font-size: 1.1rem;
-    }
+/* Applicato a tutti gli elementi quando passano sopra */
+*:hover {
+    transform: scale(1.05); /* Ingrandisce il contenitore del 5% */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra per un effetto più visibile */
 }
