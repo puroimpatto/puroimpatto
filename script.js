@@ -1,4 +1,3 @@
-
 // Aggiungi classe per ridurre l'opacità dopo l'animazione
 window.addEventListener('load', function() {
 const logo = document.getElementById('logo');
