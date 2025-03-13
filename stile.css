@@ -22,9 +22,9 @@ body.clicked {
     background-color: rgba(0, 0, 0, 0.3); 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
     position: relative;
     z-index: 5;
+    transition: none; 
 }
 
 .container img {
@@ -35,20 +35,9 @@ body.clicked {
     opacity: 0.7;
 }
 
-.container:hover {
-    transform: scale(1.05); /* Leggera espansione */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombra più intensa */
-}
-
-.container:hover img {
-    filter: blur(5px);
-}
-
 h1, p {
     font-size: 36px;
     margin-bottom: 20px;
-    opacity: 1;
-    animation: none;
 }
 
 p {
@@ -60,86 +49,36 @@ p {
 .button-link {
     display: block;
     margin: 15px auto;
-    padding: 15px 30px;
-    background-color: #ff7f50; /* Arancione brillante */
+    padding: 10px 20px; /* Piccole dimensioni per i bottoni */
+    background-color: #ff7f50;
     color: white;
-    font-size: 18px;
+    font-size: 16px; /* Piccola dimensione */
     text-decoration: none;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    width: 220px;
-    transition: all 0.3s ease;
-    position: relative;
+    width: 180px; /* Larghezza contenuta */
+    transition: background-color 0.3s ease;
 }
 
 .button-link:hover {
-    background-color: #ff5f00; /* Arancione più scuro */
-    transform: scale(1.1) rotate(5deg);
+    background-color: #ff5f00;
 }
 
 .share-button {
     display: block;
     margin: 15px auto;
-    padding: 15px 30px;
-    background-color: #25d366; /* Verde WhatsApp */
+    padding: 10px 20px; /* Piccole dimensioni per i bottoni */
+    background-color: #25d366;
     color: white;
-    font-size: 18px;
+    font-size: 16px; /* Piccola dimensione */
     text-decoration: none;
     border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 180px; /* Larghezza contenuta */
 }
 
 .share-button:hover {
-    background-color: #128c7e; /* Verde scuro */
-    transform: scale(1.05);
-}
-
-.button-link:after, .share-button:after {
-    content: "";
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: rgba(255, 255, 255, 0.3);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    pointer-events: none;
-    transition: all 0.5s;
-}
-
-.button-link:hover:after, .share-button:hover:after {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.button-link:hover, .share-button:hover {
-    box-shadow: 0 0 15px 5px rgba(255, 102, 0, 0.8); /* Colore neon arancione */
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    h1 {
-        font-size: 28px;
-    }
-    p {
-        font-size: 16px;
-    }
-    .button-link, .share-button {
-        width: 80%;
-        font-size: 16px;
-        animation: pulse 0.6s infinite alternate;
-    }
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        100% {
-            transform: scale(1.05);
-        }
-    }
+    background-color: #128c7e;
 }
 
 .parallax {
@@ -152,13 +91,6 @@ p {
     background-size: cover;
     background-attachment: fixed;
     z-index: -1;
-    animation: parallax 10s linear infinite;
-}
-
-@keyframes parallax {
-    0% { background-position: 0 0; }
-    50% { background-position: 50% 50%; }
-    100% { background-position: 0 0; }
 }
 
 .container {
@@ -219,47 +151,24 @@ p {
 
 @media (max-width: 768px) {
     .cursor-effect {
-        display: none; /* Disabilita il cursore personalizzato */
+        display: none;
     }
 
     .button-link, .share-button {
         width: 80%;
         font-size: 16px;
-        animation: pulse 0.6s infinite alternate;
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        100% {
-            transform: scale(1.05);
-        }
     }
 }
 
-/* Sezione Annunci - Nuovo stile */
 .annunci-container {
     max-width: 900px;
     margin: 40px auto;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.95); 
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease-out; 
     position: relative;
     z-index: 2;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .annunci-container h2 {
@@ -268,7 +177,6 @@ p {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
 }
 
 .annunci-container p {
@@ -285,28 +193,10 @@ p {
     margin: 20px 0;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-}
-
-.annuncio:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
-}
-
-.annuncio h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.annuncio p {
-    color: #444;
-    font-size: 1rem;
 }
 
 .container, .annuncio {
-    margin-top: 80px; 
+    margin-top: 80px;
 }
 
 #dettagli-annuncio {
@@ -324,11 +214,10 @@ p {
     color: #555;
 }
 
-/* Centrare la tabella e aggiungere margini e padding */
 .orario {
-    width: 80%; /* Impostiamo una larghezza per la tabella */
-    max-width: 800px; /* Impostiamo una larghezza massima */
-    margin: 30px auto; /* Centrato con margine */
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -336,66 +225,61 @@ p {
 }
 
 .table {
-    width: 100%; /* La tabella prende tutta la larghezza */
-    border-collapse: collapse; /* Rimuove gli spazi tra le celle */
-    text-align: center; /* Centra il contenuto delle celle */
-    margin: 0 auto; /* Centra la tabella */
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .table-container {
-    width: 90%; /* Impostiamo la larghezza del contenitore della tabella */
-    max-width: 900px; /* Larghezza massima per il contenitore */
-    margin: 30px auto; /* Centrato */
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Stile della tabella */
 .styled-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     border-radius: 10px;
-    overflow: hidden; /* Per evitare spigoli duri */
+    overflow: hidden;
 }
 
 .styled-table th, .styled-table td {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px; /* Piccola dimensione per la tabella */
     border-bottom: 1px solid #ddd;
 }
 
 .table th, .table td {
-    padding: 15px; /* Aggiungi padding alle celle */
-    border: 1px solid #ddd; /* Aggiungi il bordo alle celle */
-    font-size: 18px; /* Impostiamo una dimensione del font */
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px; /* Piccola dimensione */
 }
 
-/* Intestazione della tabella */
 .styled-table th {
-    background-color: #ff6600; /* Arancione brillante */
+    background-color: #ff6600;
     color: white;
     font-weight: bold;
     border-top: 2px solid #fff;
 }
 
-/* Colore di sfondo per le celle generali */
 .table td {
-    background-color: #d0f0f0; /* Colore di sfondo per le celle (azzurro chiaro) */
+    background-color: #d0f0f0;
 }
 
-/* Colore di sfondo per le celle contenenti giorni, orari e tipo */
-.table td:nth-child(1), /* Prima colonna (giorni) */
-.table td:nth-child(2), /* Seconda colonna (orari) */
-.table td:nth-child(3) { /* Terza colonna (tipo) */
-    background-color: #b0b0b0; /* Colore di sfondo grigio scuro per evidenziare */
-    color: #333; /* Colore del testo per maggiore leggibilità */
+.table td:nth-child(1),
+.table td:nth-child(2),
+.table td:nth-child(3) {
+    background-color: #b0b0b0;
+    color: #333;
 }
 
-/* Righe alternate per migliorare la leggibilità */
 .styled-table tbody tr:nth-child(odd) {
     background-color: rgba(255, 102, 0, 0.1);
 }
@@ -404,32 +288,17 @@ p {
     background-color: rgba(255, 102, 0, 0.05);
 }
 
-/* Hover sui righi della tabella */
 .styled-table tbody tr:hover {
     background-color: rgba(255, 102, 0, 0.2);
-    cursor: pointer; /* Per far capire che è interattivo */
 }
 
-/* Style per i dati delle celle */
 .styled-table td {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Responsività per dispositivi mobili */
 @media (max-width: 768px) {
     .styled-table th, .styled-table td {
         font-size: 14px;
         padding: 10px;
     }
-}
-
-/* Applicato a tutti i contenitori che desideri rendere interattivi */
-* {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per ingrandimento e ombra */
-}
-
-/* Applicato a tutti gli elementi quando passano sopra */
-*:hover {
-    transform: scale(1.05); /* Ingrandisce il contenitore del 5% */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra per un effetto più visibile */
 }

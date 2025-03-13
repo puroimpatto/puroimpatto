@@ -2,13 +2,19 @@
     { 
         "id": "1", 
         "titolo": "Nuovo Format", 
-        "descrizione": "Clicca qui sotto per nuovi aggiornamenti sui format!",
-        "dettagli": "Con questo nuovo format troverai all'interno della pagina TikTok, solamente i video d'impatto, mentre nella pagina Instagram sarà possibile trovare sia video che immagini motivazionali."
+        "descrizione": "Torna Puro Impatto! Scopri il nuovo format che rivoluzionerà i nostri contenuti.",
+        "dettagli": "Segui la pagina per scoprire tutte le novità in arrivo!"
     },
     {
         "id": "2",
+        "titolo": "Il ritorno d'impatto",
+        "descrizione": "Puro Impatto ritorna con contenuti freschi e stimolanti!",
+        "dettagli": "Preparati per il ritorno e per scoprire tante nuove sorprese!"
+    },
+    {
+        "id": "3",
         "titolo": "Sondaggio disponibile",
-        "descrizione": "Partecipa al sondaggio per renderti partecipe del progetto!",
-        "dettagli": "Ecco il sondaggio che vi permette di partecipare attivamente con la pagina con le vostre idee: <a href='https://www.canva.com/design/DAGcfi7j3Uw/agI4A2B-aWPZKAOKRiI11A/edit' target='_blank'>Partecipa al sondaggio</a>"
+        "descrizione": "Partecipa al sondaggio e diventa parte attiva del nostro progetto!",
+        "dettagli": "<a href='orari.html' target='_blank'>Partecipa al sondaggio</a> per far sentire la tua voce."
     }
 ]

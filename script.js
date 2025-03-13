@@ -20,6 +20,7 @@ document.body.classList.toggle('clicked');
 
 
 
+// Funzione per caricare gli annunci
 const jsonUrl = "https://raw.githubusercontent.com/puroimpatto/puroimpatto/refs/heads/main/annunci.json";
 
 async function caricaAnnunci() {
