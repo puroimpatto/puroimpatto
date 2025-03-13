@@ -28,11 +28,12 @@ body.clicked {
 }
 
 .container img {
-    transition: opacity 0.5s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .container img:hover {
-    opacity: 0.7;
+    transform: scale(1.1);
+    opacity: 0.9;
 }
 
 h1, p {
@@ -64,6 +65,15 @@ p {
 .button-link:hover {
     background-color: #ff5f00;
 }
+
+.button-link, .share-button {
+    transition: transform 0.3s ease;
+}
+
+.button-link:hover, .share-button:hover {
+    transform: scale(1.05);
+}
+
 
 .share-button {
     display: block;
@@ -193,6 +203,12 @@ p {
     margin: 20px 0;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0,3s ease, box-shadow 0.3s ease;
+}
+
+.annuncio:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .container, .annuncio {
