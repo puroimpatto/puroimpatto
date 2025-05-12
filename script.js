@@ -39,3 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   elements.forEach(el => observer.observe(el));
 });
+
+document.getElementById('menu-toggle').addEventListener('click', function() {
+  var menuContent = document.getElementById('menu-content');
+  var arrow = document.querySelector('.arrow');
+  
+  // Toggle menu visibility
+  menuContent.style.display = (menuContent.style.display === 'block') ? 'none' : 'block';
+  
+  // Toggle arrow direction
+  if (menuContent.style.display === 'block') {
+    arrow.innerHTML = '&#x25B2;'; // Up arrow
+  } else {
+    arrow.innerHTML = '&#x25BC;'; // Down arrow
+  }
+});

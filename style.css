@@ -53,36 +53,65 @@ nav {
     background-color: #1A1A1A;
     padding: 15px 10px;
     border-bottom: 1px solid #333;
+    z-index: 1000; /* Assicura che il menu sia sempre visibile sopra gli altri contenuti */
+    position: relative;
 }
 
-nav .menu-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+.menu-container {
+  position: relative;
 }
 
-main a {
-    color: #FFD700;
-    font-weight: 600;
-    text-decoration: underline;
+.menu-toggle {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 }
-main a:hover {
-    color: #ffffff;
-    text-decoration: none;
+
+.arrow {
+  margin-right: 5px;
+}
+
+.menu-content {
+  display: none;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.menu-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-content ul li {
+  margin: 5px 0;
+}
+
+.menu-content ul li a {
+  text-decoration: none;
+  color: #333;
 }
 
 nav a {
     color: #D4AF37;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: color 0.3s, border-bottom 0.3s;
 }
 
-nav a:hover {
+nav a:hover, nav a:focus {
     color: #FFD700;
     text-decoration: underline;
+    border-bottom: 2px solid #FFD700; /* Aggiunta di un bordo per il focus */
+}
+
+nav .active {
+    border-bottom: 2px solid #FFD700; /* Stile per il link attivo */
+    color: #FFD700;
 }
 
 a.underline-link {
@@ -267,13 +296,21 @@ footer {
         margin-bottom: 10px;
     }
 
+    .menu-toggle {
+    display: none;
+    }
+
+    .menu-content {
+        display: block;
+    }
+
     nav .menu-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
 
     nav a {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .container.interactive ul {
