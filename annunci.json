@@ -1,20 +1,24 @@
-[
-    { 
-        "id": "1", 
-        "titolo": "Nuovo Format", 
-        "descrizione": "Torna Puro Impatto! Scopri il nuovo format che rivoluzionerà i nostri contenuti.",
-        "dettagli": "Segui la pagina per scoprire tutte le novità in arrivo!"
-    },
-    {
-        "id": "2",
-        "titolo": "Il ritorno d'impatto",
-        "descrizione": "Puro Impatto ritorna con contenuti freschi e stimolanti!",
-        "dettagli": "Preparati per il ritorno e per scoprire tante nuove sorprese!"
-    },
-    {
-        "id": "3",
-        "titolo": "Sondaggio disponibile",
-        "descrizione": "Partecipa al sondaggio e diventa parte attiva del nostro progetto!",
-        "dettagli": "<a href='orari.html' target='_blank'>Partecipa al sondaggio</a> per far sentire la tua voce."
-    }
-]
+{
+    "articles": [
+        {
+            "title": "Il ritorno del protezionismo: storia e attualità",
+            "content": "Il protezionismo è tornato al centro del dibattito economico. Vediamo come le politiche passate influenzano le scelte di oggi."
+        },
+        {
+            "title": "Crisi economica e mercati globali",
+            "content": "L'attuale instabilità economica sta mettendo a dura prova le economie emergenti. Quali saranno le conseguenze nel lungo periodo?"
+        },
+        {
+            "title": "Nuove strategie per la crescita delle imprese online",
+            "content": "Le aziende stanno investendo sempre più nel digital marketing. Scopri le migliori strategie per emergere nel mercato digitale."
+        },
+        {
+            "title": "Lezioni dalla storia: il crollo del 1929 e le crisi moderne",
+            "content": "Analizziamo il crollo della Borsa di Wall Street e le sue somiglianze con le crisi finanziarie contemporanee."
+        },
+        {
+            "title": "Innovazione tecnologica e impatto sul lavoro",
+            "content": "L'intelligenza artificiale sta trasformando il mondo del lavoro. Quali sono le sfide e le opportunità per il futuro?"
+        }
+    ]
+}

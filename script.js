@@ -1,49 +1,41 @@
-// Aggiungi classe per ridurre l'opacità dopo l'animazione
-window.addEventListener('load', function() {
-const logo = document.getElementById('logo');
-    logo.classList.add('loaded');
+// Effetto confetti su clic del pulsante WhatsApp
+document.addEventListener('DOMContentLoaded', () => {
+  const shareButton = document.querySelector('.share-button');
+  if (shareButton) {
+    shareButton.addEventListener('click', () => {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
     });
-    
-// Funzione per muovere l'effetto cursore dietro il cursore
-document.body.addEventListener('mousemove', function(event) {
-    const cursorEffect = document.getElementById('cursor-effect');
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-    cursorEffect.style.left = `${mouseX - cursorEffect.offsetWidth / 2}px`;
-    cursorEffect.style.top = `${mouseY - cursorEffect.offsetHeight / 2}px`;
+  }
+
+  // Caricamento dinamico degli articoli da articles.json
+  fetch('articles.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('news-container');
+      data.articles.forEach(article => {
+        const articleDiv = document.createElement('div');
+        articleDiv.classList.add('article', 'scroll-fade');
+        articleDiv.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.content}</p>`;
+        container.appendChild(articleDiv);
+      });
+    })
+    .catch(error => console.error('Errore nel caricamento degli articoli:', error));
+
+  // Animazione "fade-in" per elementi con classe .scroll-fade
+  const elements = document.querySelectorAll('.scroll-fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
-    
-document.body.addEventListener('click', function() {
-document.body.classList.toggle('clicked');
-    });
+  });
 
-
-
-// Funzione per caricare gli annunci
-const jsonUrl = "https://raw.githubusercontent.com/puroimpatto/puroimpatto/refs/heads/main/annunci.json";
-
-async function caricaAnnunci() {
-    const annunciDiv = document.getElementById('annunci');
-    try {
-        const response = await fetch(jsonUrl);
-        if (!response.ok) throw new Error('Errore nella risposta');
-        const annunci = await response.json();
-        let html = `<h2>Annunci</h2>`;
-        annunci.forEach(annuncio => {
-            html += `
-                <div class="annuncio">
-                    <h3>${annuncio.titolo}</h3>
-                    <p>${annuncio.descrizione}</p>
-                    <a href="dettagli.html?id=${annuncio.id}" target="_blank">Leggi di più</a>
-                </div>
-            `;
-        });
-        annunciDiv.innerHTML = html;
-    } catch (error) {
-        console.error('Errore:', error);
-        annunciDiv.innerHTML = `<p>Impossibile caricare gli annunci al momento.</p>`;
-    }
-}
-
-// Carica gli annunci quando la pagina è pronta
-window.onload = caricaAnnunci;
+  elements.forEach(el => observer.observe(el));
+});

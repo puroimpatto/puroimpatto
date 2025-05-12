@@ -3,43 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puro Impatto</title>
+    <title>Puro Impatto - Notizie e Motivazione</title>
     <link rel="icon" type="image/png" href="logo.png">
-    <link href="stile.css" rel="stylesheet" type="text/css">
-    <script src="script.js" defer></script>
-    <meta property="og:title" content="Puro Impatto"/>
-    <meta property="og:description" content="Benvenuti nel sito ufficiale di Puro Impatto! Clicca per visitare le mie pagine." />
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer></script>
+    <meta property="og:title" content="Puro Impatto" />
+    <meta property="og:description" content="Benvenuti nel sito ufficiale di Puro Impatto! Motivazione, attualità e visione." />
 </head>
-<body>
-    <!-- Sezione parallax -->
-    <div class="parallax"></div>
 
-        <!-- Header informazioni -->
-        <div class="container interactive">
-            <h1>📢 Vuoi saperne di più?</h1>
-            <a href="informazioni.html" class="button-link">📖 Tutto sulla pagina</a>
-            <a href="annunci.html" class="button-link">📢 Annunci e novità</a>
-            <a href="orari.html" class="button-link">🕒 Gli orari</a>
+<body id="top">
+    <!-- Effetto Parallax -->
+    <div class="parallax" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header>
+        <img src="logo.png" alt="Logo di Puro Impatto" class="logo">
+        <h1>Puro Impatto</h1>
+        <p class="slogan">Dalla storia all’impatto. Motivazione, attualità e visione.</p>
+    </header>
+
+    <!-- Navigazione -->
+    <nav>
+        <div class="menu-container">
+            <a href="#top">Home</a>
+            <a href="#informazioni">Informazioni</a>
+            <a href="#annunci">Annunci</a>
+            <a href="#social">Social</a>
+            <a href="#chi-siamo">Chi Siamo</a>
         </div>
-    
-    
-        <!-- Sezione Collegamenti principali -->
-        <div class="container interactive">
-            <h1 class="section-title">🔗 Seguici sui social!</h1>
-            <div class="button-container">
-                <a href="https://www.instagram.com/puroimpatto/" target="_blank" class="button-link">📸 Instagram</a>
-                <a href="https://www.tiktok.com/@puroimpatto_" target="_blank" class="button-link">🎵 TikTok</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCvQh-A3hf59RzsVMuLHjbc5Z1uxppqPiMPAOBseyiY9yPnA/viewform" target="_blank" class="button-link">📊 Partecipa al sondaggio</a>
-                <a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok" 
-                    target="_blank" class="share-button">📲 Condividi su WhatsApp</a>
-            </div>
-        </div>
+    </nav>
 
-    <!-- Area per l'effetto cursore -->
-    <div class="cursor-effect" id="cursor-effect"></div>
+    <!-- Contenuto principale -->
+    <main>
+        <!-- Sezione Informazioni -->
+        <section id="informazioni" class="container interactive">
+            <h2 class="section-title">📖 Informazioni</h2>
+            <p>In questa sezione potrai scoprire tutto sulla nostra pagina, la nostra missione e i valori che ci guidano. Puro Impatto è dedicato a coloro che vogliono analizzare la realtà, ispirandosi alla storia e guardando al futuro con una nuova visione.</p>
+            <a href="informazioni.html" class="button-link">🔍 Scopri di più</a>
+        </section>
 
-    <!-- Collegamento al file JavaScript -->
-    <script type="module" src="script.js"></script>
+        <!-- Sezione Annunci -->
+        <section id="annunci" class="container interactive">
+            <h2 class="section-title">📢 Annunci</h2>
+            <p>Resta aggiornato con gli ultimi annunci e novità! Qui troverai informazioni rilevanti su eventi, aggiornamenti e nuove iniziative di Puro Impatto.</p>
+                <a href="annunci.html" class="button-link">📰 Scopri gli ultimi annunci</a>
+        </section>
 
+        <!-- Sezione Social -->
+        <section id="social" class="container interactive" aria-label="Social e condivisione">
+            <h2 class="section-title">🔗 Seguici sui social!</h2>
+            <ul>
+                <li><a href="https://www.instagram.com/puroimpatto/" target="_blank" rel="noopener noreferrer" class="button-link">📸 Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@puroimpatto_" target="_blank" rel="noopener noreferrer" class="button-link">🎵 TikTok</a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfCvQh-A3hf59RzsVMuLHjbc5Z1uxppqPiMPAOBseyiY9yPnA/viewform" target="_blank" rel="noopener noreferrer" class="button-link">📊 Partecipa al sondaggio</a></li>
+                <li><a href="https://wa.me/?text=Visita%20il%20sito%20Puro%20Impatto%20e%20seguimi%20su%20Instagram%20e%20TikTok" target="_blank" rel="noopener noreferrer" class="share-button">📲 Condividi su WhatsApp</a></li>
+            </ul>
+        </section>
+
+        <!-- Sezione Chi Siamo -->
+        <section id="chi-siamo" class="container">
+            <h2>Chi Siamo</h2>
+            <p><strong>Puro Impatto</strong> è un progetto nato per analizzare la realtà attraverso il filtro della storia, ispirando le persone con contenuti motivazionali e approfonditi. Ci impegniamo a fornire una nuova prospettiva sugli eventi attuali, offrendo sempre spunti di riflessione e crescita personale.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Puro Impatto - Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Effetto cursore -->
+    <div class="cursor-effect" id="cursor-effect" aria-hidden="true"></div>
 </body>
 </html>
