@@ -137,6 +137,22 @@ a.underline-link:hover::after {
     transition: background-color 0.3s ease;
 }
 
+.whatsapp-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #25D366; /* Verde WhatsApp */
+    color: #0A1A2F;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    }
+
+.whatsapp-button:hover {
+    background-color: #1ebe5d;
+    color: #000;
+}
+
 .container.interactive a.button-link:hover {
     background-color: #FFD700;
     color: #000;
