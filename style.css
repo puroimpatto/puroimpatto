@@ -188,3 +188,59 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- RESPONSIVE --- */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 30px 15px 15px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  .slogan {
+    font-size: 14px;
+  }
+
+  .logo {
+    max-width: 90px;
+    margin-bottom: 10px;
+  }
+
+  nav .menu-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  .container.interactive ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .container.interactive a.button-link {
+    width: 90%;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .article {
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .article h3 {
+    font-size: 20px;
+  }
+
+  footer {
+    font-size: 13px;
+    padding: 20px 10px;
+  }
+}
